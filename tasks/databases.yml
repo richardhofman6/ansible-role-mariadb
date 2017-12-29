@@ -14,6 +14,8 @@
     name: "{{ item.name }}"
     login_user: root
     login_password: "{{ mariadb_root_password }}"
+    collation: utf8_general_ci
+    encoding: utf8
     state: present
   with_items: "{{ mariadb_databases }}"
   register: db_creation
